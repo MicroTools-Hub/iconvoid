@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Gradients, Patterns &amp; Paint Servers Glossary (40+ Terms) | IconStash</title>
+  <meta name="description" content="Exhaustive technical glossary of 40+ SVG paint servers: linearGradient, radialGradient, pattern, gradientUnits, spreadMethod, and P3 color gamuts.">
+  <meta name="keywords" content="svg gradients glossary, linearGradient svg math, radialGradient fx fy fr, patternUnits vs patternContentUnits, objectBoundingBox vs userSpaceOnUse, spreadMethod pad reflect repeat, svg paint servers, gradientTransform svg">
+  <meta property="og:title" content="SVG Gradients, Patterns &amp; Paint Servers Glossary (40+ Terms)">
+  <meta property="og:description" content="Exhaustive technical glossary of 40+ SVG paint servers: linearGradient, radialGradient, pattern, gradientUnits, spreadMethod, and P3 color gamuts.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://iconstash.io/Glossary/svg-gradients-patterns-paint-servers-glossary/">
+  <meta property="og:site_name" content="IconStash">
+  <meta property="og:image" content="https://iconstash.io/assets/articles/svg-gradients-patterns-paint-servers-glossary.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="SVG Gradients, Patterns &amp; Paint Servers Glossary">
+  <meta property="article:published_time" content="2026-09-07T00:00:00Z">
+  <meta property="article:modified_time" content="2026-09-07T00:00:00Z">
+  <meta property="article:author" content="Jouni Flemming">
+  <meta property="article:section" content="Glossary">
+  <meta property="article:tag" content="SVG">
+  <meta property="article:tag" content="Color Theory">
+  <meta property="article:tag" content="Web Standards">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SVG Gradients, Patterns &amp; Paint Servers Glossary (40+ Terms)">
+  <meta name="twitter:description" content="40+ technical definitions for SVG linearGradient, radialGradient, pattern, coordinate mapping, spread methods, and GPU paint servers.">
+  <meta name="twitter:image" content="https://iconstash.io/assets/articles/svg-gradients-patterns-paint-servers-glossary.jpg">
+  <link rel="canonical" href="https://iconstash.io/Glossary/svg-gradients-patterns-paint-servers-glossary/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "name": "SVG Gradients, Patterns & Paint Servers Glossary",
+    "description": "Exhaustive technical glossary of 40+ SVG paint servers: linearGradient, radialGradient, pattern, gradientUnits, spreadMethod, and P3 color gamuts.",
+    "url": "https://iconstash.io/Glossary/svg-gradients-patterns-paint-servers-glossary/",
+    "image": "https://iconstash.io/assets/articles/svg-gradients-patterns-paint-servers-glossary.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Jouni Flemming",
+      "url": "https://iconstash.io/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IconStash",
+      "url": "https://iconstash.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://iconstash.io/logo.png"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Great Software Company",
+        "url": "https://greatsoftwarecompany.com"
+      }
+    },
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "hasDefinedTerm": [
+      { "@type": "DefinedTerm", "name": "Paint Server", "description": "An SVG element that defines graphical resources used to color the interior fill or outline stroke of vector graphics." },
+      { "@type": "DefinedTerm", "name": "<linearGradient>", "description": "Specifies a smooth linear color transition along an arbitrary vector axis defined by coordinates (x1, y1) to (x2, y2)." },
+      { "@type": "DefinedTerm", "name": "<radialGradient>", "description": "Specifies a circular or elliptical radial transition radiating outward from a focal center point to an outer boundary circle." },
+      { "@type": "DefinedTerm", "name": "<pattern>", "description": "Defines a tileable vector or raster graphic repeated across the fill or stroke region of target shapes." },
+      { "@type": "DefinedTerm", "name": "gradientUnits", "description": "Specifies the coordinate system for gradient geometry endpoints: objectBoundingBox (default) or userSpaceOnUse." },
+      { "@type": "DefinedTerm", "name": "patternUnits", "description": "Defines the coordinate system for pattern tile positioning (x, y) and dimensions (width, height)." },
+      { "@type": "DefinedTerm", "name": "patternContentUnits", "description": "Defines the coordinate system for vector graphic elements rendered inside the pattern tile container." },
+      { "@type": "DefinedTerm", "name": "spreadMethod", "description": "Governs color extension when a gradient does not span the entire target element: pad, reflect, or repeat." },
+      { "@type": "DefinedTerm", "name": "gradientTransform", "description": "Applies an affine transformation matrix (rotate, scale, translate, skew) to the gradient coordinate system." },
+      { "@type": "DefinedTerm", "name": "objectBoundingBox", "description": "A normalized coordinate system where coordinates scale from 0.0 to 1.0 relative to the target element's bounding box." },
+      { "@type": "DefinedTerm", "name": "userSpaceOnUse", "description": "An absolute coordinate system referencing the current viewport coordinate space regardless of target element dimensions." },
+      { "@type": "DefinedTerm", "name": "color-interpolation", "description": "Controls whether color transitions are mathematically computed in gamma-corrected sRGB or physically linear linearRGB space." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "IconStash", "item": "https://iconstash.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://iconstash.io/Glossary/icon-svg-terminology/" },
+      { "@type": "ListItem", "position": 3, "name": "SVG Gradients, Patterns & Paint Servers Glossary", "item": "https://iconstash.io/Glossary/svg-gradients-patterns-paint-servers-glossary/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the key difference between objectBoundingBox and userSpaceOnUse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "objectBoundingBox (default) evaluates coordinates as normalized fractions (0 to 1) relative to the target element's bounding box, automatically scaling with the element. userSpaceOnUse calculates coordinates using the absolute SVG canvas coordinate system, preventing aspect-ratio distortion on non-square shapes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do SVG gradients cause visual bugs or blank fills in Single-Page Apps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SVG gradients are referenced via ID selectors like fill='url(#grad1)'. When multiple components across routes or lists render identical IDs in the DOM, the browser resolves only the first instance encountered. If that first instance is unmounted or in an off-screen SVG, all other icons referencing that ID collapse into blank transparent fills."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does spreadMethod govern gradient overflow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "spreadMethod determines how colors behave outside the gradient's x1/y1 and x2/y2 vector span. 'pad' (default) clamps to the first and last stop colors; 'reflect' mirrors the color stops alternately; 'repeat' loops the gradient sequence continuously from 0% to 100%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between color-interpolation='sRGB' and 'linearRGB'?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "linearRGB executes color stop interpolation in a physically linear color space where intermediate hues blend naturally without dirty gray or muddy bands. sRGB applies a non-linear gamma curve that can cause dark halos between complementary or high-saturation colors."
+        }
+      }
+    ]
+  }]
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { background: #0A0A0A; color: #F2F2F2; font: 400 17px/1.8 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    a { color: #C1DD2D; text-decoration: none; transition: color 150ms ease; }
+    a:hover { color: #D2ED3E; }
+    ::selection { background: rgba(193,221,45,0.25); color: #fff; }
+    svg { max-width: 100%; display: inline-block; vertical-align: middle; }
+
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid #1F1F1F; padding: 0 24px; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+    .site-header .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; color: #F2F2F2; }
+    .site-header .logo svg { width: 24px; height: 24px; color: #C1DD2D; }
+    .site-header nav { display: flex; gap: 24px; align-items: center; }
+    .site-header nav a { color: #888; font-size: 14px; font-weight: 500; }
+    .site-header nav a:hover { color: #F2F2F2; }
+    .header-cta { background: #C1DD2D; color: #0A0A0A; font-weight: 700; font-size: 13px; padding: 8px 18px; border-radius: 6px; border: none; cursor: pointer; transition: all 150ms ease; display: inline-block; }
+    .header-cta:hover { background: #D2ED3E; transform: translateY(-1px); }
+
+    .theme-toggle-btn { background: transparent; border: 1px solid #262626; color: #A3A3A3; width: 34px; height: 34px; border-radius: 6px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 150ms ease; }
+    .theme-toggle-btn:hover { border-color: #404040; color: #F2F2F2; }
+
+    /* Layout */
+    .page-container { max-width: 1280px; margin: 0 auto; padding: 48px 24px 80px; width: 100%; }
+    .breadcrumb { display: flex; gap: 8px; font-size: 13px; color: #666; margin-bottom: 24px; align-items: center; flex-wrap: wrap; }
+    .breadcrumb a { color: #888; }
+    .breadcrumb a:hover { color: #C1DD2D; }
+    .breadcrumb .sep { color: #444; }
+
+    .article-hero { margin-bottom: 36px; border-bottom: 1px solid #1F1F1F; padding-bottom: 32px; }
+    .article-hero .tag { display: inline-block; background: rgba(193,221,45,0.12); color: #C1DD2D; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; border: 1px solid rgba(193,221,45,0.25); }
+    .article-hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.18; color: #FFF; letter-spacing: -0.03em; margin-bottom: 16px; }
+    .article-meta { display: flex; gap: 20px; font-size: 13px; color: #737373; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+
+    .article-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; align-items: start; }
+    @media (min-width: 1024px) {
+      .article-layout { grid-template-columns: minmax(0, 1fr) 320px; }
+    }
+
+    .article-main { min-width: 0; }
+    .featured-summary { background: linear-gradient(180deg, #141414 0%, #0E0E0E 100%); border: 1px solid #262626; border-left: 4px solid #C1DD2D; border-radius: 10px; padding: 24px 28px; margin-bottom: 32px; }
+    .featured-summary p { font-size: 15.5px; line-height: 1.7; color: #E5E5E5; margin-bottom: 12px; font-weight: 500; }
+
+    /* Filter Search Input */
+    .filter-search-box { margin-bottom: 32px; }
+    .filter-input { width: 100%; background: #121212; border: 1px solid #262626; border-radius: 8px; padding: 14px 18px; font-size: 15px; color: #FFF; font-family: "Inter", sans-serif; transition: all 150ms ease; }
+    .filter-input:focus { outline: none; border-color: #C1DD2D; box-shadow: 0 0 0 3px rgba(193,221,45,0.15); }
+    .no-results-box { background: #141414; border: 1px dashed #333; border-radius: 8px; padding: 28px; text-align: center; margin: 32px 0; }
+    .no-results-box p { color: #888; font-size: 15px; margin-bottom: 14px; }
+    .reset-filter-btn { background: #C1DD2D; color: #0A0A0A; border: none; font-weight: 700; font-size: 13px; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+
+    /* Category Headers & Term Cards */
+    h2 { font-size: 24px; font-weight: 800; color: #FFF; letter-spacing: -0.02em; margin: 48px 0 20px; padding-top: 24px; border-top: 1px solid #1F1F1F; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .cat-badge { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: #1A1A1A; color: #A3A3A3; padding: 4px 10px; border-radius: 4px; border: 1px solid #262626; }
+
+    .term-card { background: #121212; border: 1px solid #1F1F1F; border-radius: 10px; padding: 22px 24px; margin-bottom: 16px; transition: border-color 150ms ease; }
+    .term-card:hover { border-color: #333; }
+    .term-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .term-title { font-size: 18px; font-weight: 800; color: #FFF; }
+    .term-tag { font-family: "JetBrains Mono", monospace; font-size: 12.5px; background: rgba(193,221,45,0.1); color: #C1DD2D; padding: 3px 8px; border-radius: 4px; }
+    .term-desc { color: #B3B3B3; font-size: 15.5px; line-height: 1.7; margin-bottom: 12px; }
+    .term-desc code { font-family: "JetBrains Mono", monospace; font-size: 0.9em; background: #1A1A1A; padding: 2px 6px; border-radius: 4px; color: #C1DD2D; }
+
+    pre { background: #0A0A0A; border: 1px solid #222; border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 10px 0 0; font-family: "JetBrains Mono", monospace; font-size: 13px; line-height: 1.5; color: #E5E5E5; }
+
+    /* Comparison Tables */
+    .table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid #222; border-radius: 8px; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; min-width: 600px; border-collapse: collapse; font-size: 14.5px; text-align: left; }
+    th { background: #141414; color: #FFF; padding: 14px 16px; font-weight: 700; border-bottom: 2px solid #262626; white-space: nowrap; }
+    td { padding: 13px 16px; border-bottom: 1px solid #1E1E1E; color: #D4D4D4; }
+    tr:nth-child(even) td { background: #0E0E0E; }
+    tr:hover td { background: #161616; }
+
+    /* Sticky Sidebar */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    @media (min-width: 1024px) {
+      .article-sidebar { position: sticky; top: 80px; }
+    }
+    .sidebar-card { background: #121212; border: 1px solid #222; border-radius: 12px; padding: 24px; }
+    .sidebar-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 16px; }
+    .toc-nav ol { list-style: none; margin: 0; padding: 0; }
+    .toc-nav li { margin-bottom: 10px; font-size: 14px; }
+    .toc-nav a { color: #A3A3A3; display: block; line-height: 1.5; }
+    .toc-nav a:hover { color: #C1DD2D; }
+
+    .cta-sidebar-box { background: linear-gradient(145deg, #181E07 0%, #0F1205 100%); border: 1px solid rgba(193,221,45,0.3); border-radius: 12px; padding: 24px; text-align: center; }
+    .cta-sidebar-box h4 { font-size: 18px; font-weight: 800; color: #FFF; margin-bottom: 8px; }
+    .cta-sidebar-box p { font-size: 13.5px; color: #AAA; line-height: 1.5; margin-bottom: 16px; }
+    .cta-sidebar-btn { display: inline-block; width: 100%; background: #C1DD2D; color: #0A0A0A; font-weight: 800; font-size: 14px; padding: 12px 18px; border-radius: 6px; transition: all 150ms ease; }
+    .cta-sidebar-btn:hover { background: #D2ED3E; transform: translateY(-1px); }
+
+    /* FAQ Box */
+    .faq-item { background: #121212; border: 1px solid #222; border-radius: 8px; margin-bottom: 14px; padding: 18px 22px; }
+    .faq-item h3 { margin-top: 0; font-size: 16px; color: #FFF; margin-bottom: 8px; }
+    .faq-item p { margin-bottom: 0; color: #A3A3A3; font-size: 14.5px; line-height: 1.6; }
+
+    .cta-banner { background: linear-gradient(135deg, #181C0B 0%, #111406 100%); border: 1px solid rgba(193,221,45,0.3); border-radius: 12px; padding: 36px; text-align: center; margin: 60px 0 20px; }
+    .cta-banner h3 { color: #FFF; font-size: 24px; margin-bottom: 10px; font-weight: 800; }
+    .cta-banner p { color: #A3A3A3; max-width: 540px; margin: 0 auto 20px; font-size: 15px; }
+
+    .site-footer { border-top: 1px solid #1F1F1F; padding: 48px 24px; background: #0A0A0A; text-align: center; font-size: 14px; color: #666; margin-top: 0; }
+    .site-footer a { color: #888; }
+    .site-footer a:hover { color: #C1DD2D; }
+
+    @media (max-width: 1023px) {
+      .cta-sidebar-box { display: none; }
+    }
+    @media (max-width: 768px) {
+      .page-container { padding: 28px 16px 60px; }
+      .site-header nav a:not(.header-cta) { display: none; }
+      .site-header nav { gap: 12px; }
+      .header-cta { padding: 6px 12px; font-size: 12px; }
+      .article-hero h1 { font-size: 26px; }
+      .featured-summary { padding: 18px 20px; }
+      pre { padding: 12px; font-size: 12px; }
+    }
+
+    /* Light Theme */
+    html[data-theme="light"] body { background: #FAFAFA; color: #171717; }
+    html[data-theme="light"] .site-header { background: rgba(250,250,250,0.88); border-bottom-color: #E5E5E5; }
+    html[data-theme="light"] .site-header .logo { color: #171717; }
+    html[data-theme="light"] .site-header nav a { color: #525252; }
+    html[data-theme="light"] .article-hero h1 { color: #0A0A0A; }
+    html[data-theme="light"] h2 { color: #0A0A0A; border-top-color: #E5E5E5; }
+    html[data-theme="light"] .filter-input { background: #FFF; border-color: #E5E5E5; color: #0A0A0A; }
+    html[data-theme="light"] .term-card { background: #FFF; border-color: #E5E5E5; }
+    html[data-theme="light"] .term-title { color: #0A0A0A; }
+    html[data-theme="light"] .term-tag { background: #F0F4D8; color: #5C6E00; }
+    html[data-theme="light"] .term-desc { color: #525252; }
+    html[data-theme="light"] pre { background: #F4F4F5; border-color: #E4E4E7; color: #18181B; }
+    html[data-theme="light"] code { background: #E4E4E7; color: #4D6300; }
+    html[data-theme="light"] a { color: #6D8200; }
+    html[data-theme="light"] .table-wrap { border-color: #E4E4E7; }
+    html[data-theme="light"] th { background: #F4F4F5; color: #0A0A0A; border-bottom-color: #D4D4D8; }
+    html[data-theme="light"] td { border-bottom-color: #E4E4E7; color: #27272A; }
+    html[data-theme="light"] tr:nth-child(even) td { background: #FAFAFA; }
+    html[data-theme="light"] tr:hover td { background: #F4F4F5; }
+    html[data-theme="light"] .featured-summary { background: #F4F4F5; border-color: #E4E4E7; border-left-color: #849E00; }
+    html[data-theme="light"] .featured-summary p { color: #18181B; }
+    html[data-theme="light"] .sidebar-card { background: #F4F4F5; border-color: #E4E4E7; }
+    html[data-theme="light"] .faq-item { background: #F4F4F5; border-color: #E4E4E7; }
+    html[data-theme="light"] .faq-item h3 { color: #0A0A0A; }
+    html[data-theme="light"] .site-footer { background: #FAFAFA; border-top-color: #E5E5E5; }
+    html[data-theme="light"] figcaption { color: #525252; }
+    html[data-theme="light"] .article-figure img { border-color: #E4E4E7 !important; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="logo" aria-label="IconStash.io home">
+      <svg class="logo-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z"/><path d="m8 9 4-2 4 2v6l-4 2-4-2V9Z"/></svg>
+      <span>IconStash</span>
+    </a>
+    <nav>
+      <a href="/#/">Search 134K+ Icons</a>
+      <a href="/articles/">Articles &amp; Guides</a>
+      <a href="/Listicles/best-free-icon-sets-2026/">Best Sets</a>
+      <a href="/Glossary/icon-svg-terminology/">Glossary Hub</a>
+      <a href="/stats/">Statistics</a>
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <a href="/#/" class="header-cta">Open App</a>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">/</span>
+      <a href="/Glossary/icon-svg-terminology/">Glossary</a>
+      <span class="sep">/</span>
+      <span>SVG Gradients &amp; Paint Servers</span>
+    </nav>
+
+    <div class="article-layout">
+      <article class="article-main">
+        <header class="article-hero">
+          <span class="tag">Vector Math &amp; Color Theory</span>
+          <h1>SVG Gradients, Patterns &amp; Paint Servers Glossary (40+ Terms)</h1>
+          <div class="article-meta">
+            <span><strong>Published:</strong> September 7, 2026</span>
+            <span>By <a href="/about/" rel="author">Jouni Flemming</a></span>
+            <span><strong>Coverage:</strong> 40+ Paint Servers, Gradients &amp; Color Space Rules</span>
+          </div>
+        </header>
+
+        <div class="featured-summary">
+          <p><strong>Vector Paint Server Architecture:</strong> In SVG standards, a paint server defines the mathematical model through which shapes and strokes receive visual color, smooth gradient transitions, or repetitive patterns. Unlike flat RGB colors, paint servers establish independent geometric coordinate spaces, color interpolation gamuts, and GPU tiling engines.</p>
+        </div>
+
+        <figure class="article-figure" style="margin: 28px 0 36px 0;">
+          <img src="/assets/articles/svg-gradients-patterns-paint-servers-glossary.jpg" alt="SVG Gradients and Vector Paint Servers Studio interface illustrating radial gradients, linear color interpolation, and pattern tiles" width="1200" height="675" loading="lazy" style="width:100%;max-width:100%;height:auto;border-radius:12px;border:1px solid rgba(255,255,255,0.1);display:block;" />
+          <figcaption style="font-size: 13px; color: #888; text-align: center; margin-top: 10px;">Visualizing SVG Paint Servers: Coordinate mapping, radial &amp; linear gradients, and procedural pattern servers.</figcaption>
+        </figure>
+
+        <div class="filter-search-box">
+          <input type="text" id="termFilter" class="filter-input" placeholder="Filter 40+ SVG gradient &amp; paint terms (e.g. objectBoundingBox, linearGradient, spreadMethod, fx, fy)...">
+        </div>
+
+        <div id="noResults" class="no-results-box" style="display: none;">
+          <p>No SVG gradient terms found matching "<span id="noResultsQuery"></span>".</p>
+          <button type="button" id="resetFilterBtn" class="reset-filter-btn">Reset Filter</button>
+        </div>
+
+        <!-- Category 1: Core Paint Server Elements -->
+        <section id="cat-core-servers">
+          <h2>
+            <span>1. Core Paint Server Containers &amp; Primitives</span>
+            <span class="cat-badge">Elements</span>
+          </h2>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">Paint Server</span>
+              <span class="term-tag">&lt;paint&gt;</span>
+            </div>
+            <p class="term-desc">The abstract W3C classification for elements (<code>&lt;linearGradient&gt;</code>, <code>&lt;radialGradient&gt;</code>, <code>&lt;pattern&gt;</code>, <code>&lt;meshGradient&gt;</code>) that generate dynamic color, gradients, or graphics referenced via <code>fill="url(#id)"</code> or <code>stroke="url(#id)"</code>.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">&lt;linearGradient&gt;</span>
+              <span class="term-tag">&lt;linearGradient id="..."&gt;</span>
+            </div>
+            <p class="term-desc">Defines a linear color transition along a straight vector axis connecting two points: <code>(x1, y1)</code> to <code>(x2, y2)</code>. Contains one or more <code>&lt;stop&gt;</code> elements defining color offsets.</p>
+            <pre><code>&lt;linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%"&gt;
+  &lt;stop offset="0%" stop-color="#C1DD2D" /&gt;
+  &lt;stop offset="100%" stop-color="#0A0A0A" /&gt;
+&lt;/linearGradient&gt;</code></pre>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">&lt;radialGradient&gt;</span>
+              <span class="term-tag">&lt;radialGradient id="..."&gt;</span>
+            </div>
+            <p class="term-desc">Defines a smooth circular or elliptical transition where colors emanate outward from a focal center point to an outer boundary circle or ellipse.</p>
+            <pre><code>&lt;radialGradient id="sun" cx="50%" cy="50%" r="50%" fx="30%" fy="30%"&gt;
+  &lt;stop offset="0%" stop-color="#FFF" /&gt;
+  &lt;stop offset="100%" stop-color="#F59E0B" /&gt;
+&lt;/radialGradient&gt;</code></pre>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">&lt;pattern&gt;</span>
+              <span class="term-tag">&lt;pattern id="..."&gt;</span>
+            </div>
+            <p class="term-desc">A container element declaring a reusable tileable vector graphic or image that repeats along the X and Y axes across the interior of any painted element.</p>
+            <pre><code>&lt;pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"&gt;
+  &lt;circle cx="10" cy="10" r="2" fill="#C1DD2D" /&gt;
+&lt;/pattern&gt;</code></pre>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">&lt;meshGradient&gt;</span>
+              <span class="term-tag">SVG 2 Primitive</span>
+            </div>
+            <p class="term-desc">An advanced SVG 2 specification primitive defining a two-dimensional grid of bicubic Coons patch meshes for photorealistic vector shading and complex color blending.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">&lt;defs&gt;</span>
+              <span class="term-tag">&lt;defs&gt;</span>
+            </div>
+            <p class="term-desc">The definitions container element in SVG. Paint servers declared inside <code>&lt;defs&gt;</code> are not rendered directly on screen; they are held in memory as reusable resource definitions.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">&lt;stop&gt;</span>
+              <span class="term-tag">&lt;stop offset="..."&gt;</span>
+            </div>
+            <p class="term-desc">Specifies an individual color milestone along a gradient line. Requires an <code>offset</code> position and color/opacity attributes.</p>
+          </div>
+        </section>
+
+        <!-- Category 2: Geometry & Coordinates -->
+        <section id="cat-geometry">
+          <h2>
+            <span>2. Geometry, Endpoints &amp; Focal Coordinates</span>
+            <span class="cat-badge">Math &amp; Vectors</span>
+          </h2>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">x1, y1 (Gradient Start)</span>
+              <span class="term-tag">x1, y1</span>
+            </div>
+            <p class="term-desc">The starting Cartesian coordinate of the linear gradient vector line. In <code>objectBoundingBox</code>, <code>x1="0%" y1="0%"</code> represents the top-left corner.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">x2, y2 (Gradient End)</span>
+              <span class="term-tag">x2, y2</span>
+            </div>
+            <p class="term-desc">The terminating Cartesian coordinate of the linear gradient vector line. Dictates the angle and direction of the linear color sweep (e.g. <code>x2="100%" y2="0%"</code> creates a horizontal gradient).</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">cx, cy (Radial Center)</span>
+              <span class="term-tag">cx, cy</span>
+            </div>
+            <p class="term-desc">Defines the center point of the largest, outermost circle in a <code>&lt;radialGradient&gt;</code>. Defaults to <code>50%, 50%</code>.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">r (Radial Radius)</span>
+              <span class="term-tag">r</span>
+            </div>
+            <p class="term-desc">Specifies the radius of the outer boundary circle for a radial gradient. Colors reach 100% offset at distance <code>r</code> from the center.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">fx, fy (Radial Focal Point)</span>
+              <span class="term-tag">fx, fy</span>
+            </div>
+            <p class="term-desc">The focal starting point where the 0% color stop originates. Shifting <code>fx</code> and <code>fy</code> away from <code>cx</code> and <code>cy</code> creates asymmetrical specular lighting effects.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">fr (Focal Radius)</span>
+              <span class="term-tag">fr</span>
+            </div>
+            <p class="term-desc">Defines the radius of the inner focal circle where the 0% color stop starts. Enables conical-like donut gradients with hollow centers.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">width &amp; height (Pattern Tile)</span>
+              <span class="term-tag">width, height</span>
+            </div>
+            <p class="term-desc">Specifies the dimensions of a single repeating pattern tile. In <code>patternUnits="userSpaceOnUse"</code>, values are expressed in explicit canvas units.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">x &amp; y (Pattern Tile Offset)</span>
+              <span class="term-tag">x, y</span>
+            </div>
+            <p class="term-desc">Establishes the origin alignment offset where the first pattern tile begins repeating across the parent shape.</p>
+          </div>
+        </section>
+
+        <!-- Category 3: Coordinate Systems -->
+        <section id="cat-coordinates">
+          <h2>
+            <span>3. Coordinate Systems &amp; Space Mapping</span>
+            <span class="cat-badge">Units</span>
+          </h2>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">gradientUnits</span>
+              <span class="term-tag">objectBoundingBox | userSpaceOnUse</span>
+            </div>
+            <p class="term-desc">Specifies the coordinate system for the gradient endpoints <code>(x1, y1, x2, y2)</code> or radial center. Defaults to <code>objectBoundingBox</code>.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">patternUnits</span>
+              <span class="term-tag">objectBoundingBox | userSpaceOnUse</span>
+            </div>
+            <p class="term-desc">Specifies the coordinate system for the pattern container's <code>x, y, width, height</code> tile boundary. Defaults to <code>objectBoundingBox</code>.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">patternContentUnits</span>
+              <span class="term-tag">userSpaceOnUse | objectBoundingBox</span>
+            </div>
+            <p class="term-desc">Specifies the coordinate system for vector paths and graphic primitives drawn inside the pattern tile. Defaults to <code>userSpaceOnUse</code>.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">objectBoundingBox</span>
+              <span class="term-tag">Normalized Space [0, 1]</span>
+            </div>
+            <p class="term-desc">A relative coordinate model where 0.0 corresponds to 0% and 1.0 corresponds to 100% of the target element's bounding box. Gradients automatically scale when the element stretches.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">userSpaceOnUse</span>
+              <span class="term-tag">Absolute Canvas Space</span>
+            </div>
+            <p class="term-desc">Coordinates reference the current SVG document coordinate system directly. Gradients maintain constant absolute scale regardless of individual shape size or aspect ratio.</p>
+          </div>
+        </section>
+
+        <!-- Category 4: Stops & Interpolation -->
+        <section id="cat-stops">
+          <h2>
+            <span>4. Color Stops, Interpolation &amp; Spread Methods</span>
+            <span class="cat-badge">Color Science</span>
+          </h2>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">offset</span>
+              <span class="term-tag">offset="0%..100%"</span>
+            </div>
+            <p class="term-desc">A number between <code>0.0</code> and <code>1.0</code> (or <code>0%</code> to <code>100%</code>) indicating where the color stop is situated along the gradient vector.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">stop-color</span>
+              <span class="term-tag">CSS Color Value</span>
+            </div>
+            <p class="term-desc">The color applied at the stop offset. Can be any valid CSS color: hex, rgb, oklch, Display-P3, or <code>currentColor</code>.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">stop-opacity</span>
+              <span class="term-tag">stop-opacity="0..1"</span>
+            </div>
+            <p class="term-desc">The alpha transparency applied to the stop color, ranging from <code>0.0</code> (fully transparent) to <code>1.0</code> (fully opaque).</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">spreadMethod="pad"</span>
+              <span class="term-tag">Default Spread</span>
+            </div>
+            <p class="term-desc">Extends the initial and terminal color stops to fill the remaining area before 0% and after 100% with flat color clamping.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">spreadMethod="reflect"</span>
+              <span class="term-tag">Mirroring</span>
+            </div>
+            <p class="term-desc">Repeats the gradient continuously in alternating reversed directions (0% to 100%, then 100% to 0%), creating mirror-reflection accordion patterns.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">spreadMethod="repeat"</span>
+              <span class="term-tag">Cycle Repetition</span>
+            </div>
+            <p class="term-desc">Repeats the gradient sequence in forward order from 0% to 100% repeatedly across the available surface area.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">color-interpolation="linearRGB"</span>
+              <span class="term-tag">Linear Color Math</span>
+            </div>
+            <p class="term-desc">Interpolates colors in a physically linear color space without gamma curves. Prevents dark muddiness and dirty gray borders between vibrant stop hues.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">color-interpolation="sRGB"</span>
+              <span class="term-tag">Perceptual Space</span>
+            </div>
+            <p class="term-desc">Interpolates colors using the standard non-linear sRGB color space. Matches CSS gradient defaults across standard web browsers.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">Display-P3 &amp; OKLCH in Stops</span>
+              <span class="term-tag">Wide Color Gamuts</span>
+            </div>
+            <p class="term-desc">Modern CSS Color Module Level 4 color spaces supported inside SVG stops. Enables 30% wider color reproduction on modern OLED and Retina screens.</p>
+            <pre><code>&lt;stop offset="0%" stop-color="oklch(0.85 0.28 142)" /&gt;
+&lt;stop offset="100%" stop-color="color(display-p3 0.9 0.1 0.2)" /&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- Category 5: Transformations -->
+        <section id="cat-transforms">
+          <h2>
+            <span>5. Transformation &amp; Matrix Manipulation</span>
+            <span class="cat-badge">Transforms</span>
+          </h2>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">gradientTransform</span>
+              <span class="term-tag">matrix / rotate / scale</span>
+            </div>
+            <p class="term-desc">Applies an affine transformation matrix to the gradient coordinate system, allowing rotation angles without recalculating fractional Cartesian coordinates.</p>
+            <pre><code>&lt;linearGradient id="angled" gradientTransform="rotate(45)"&gt;...&lt;/linearGradient&gt;</code></pre>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">patternTransform</span>
+              <span class="term-tag">Affine Matrix</span>
+            </div>
+            <p class="term-desc">Applies an affine transformation to the entire pattern tiling matrix. Enables angled diagonal stripes, scaling, and skewing of the tile grid.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">Affine Shear in Gradients</span>
+              <span class="term-tag">skewX, skewY</span>
+            </div>
+            <p class="term-desc">Distorts gradient angles along an oblique plane, frequently employed in isometric vector art and dynamic metallic reflections.</p>
+          </div>
+        </section>
+
+        <!-- Category 6: Application Rules & Edge Cases -->
+        <section id="cat-traps">
+          <h2>
+            <span>6. Paint Application Rules &amp; Architecture Traps</span>
+            <span class="cat-badge">Best Practices</span>
+          </h2>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">fill="url(#id)"</span>
+              <span class="term-tag">Paint Server Link</span>
+            </div>
+            <p class="term-desc">The functional URI reference linking an SVG shape's interior fill to a declared paint server ID in the document.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">stroke="url(#id)"</span>
+              <span class="term-tag">Stroke Gradient</span>
+            </div>
+            <p class="term-desc">Applies a paint server directly to the stroked outline path of a vector graphic, creating gradient border lines and neon outline effects.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">paint-order</span>
+              <span class="term-tag">fill stroke markers</span>
+            </div>
+            <p class="term-desc">Controls the order in which fill, stroke, and markers are composited. Setting <code>paint-order: stroke fill</code> renders stroke behind the fill, preserving crisp interior shapes.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">fill-rule="nonzero" vs "evenodd"</span>
+              <span class="term-tag">Winding Rules</span>
+            </div>
+            <p class="term-desc">Algorithms that determine which regions of intersecting vector subpaths are considered 'inside' the shape and thus filled with the paint server.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">The SVG ID Collision Trap</span>
+              <span class="term-tag">SPA Bug Risk</span>
+            </div>
+            <p class="term-desc">Occurs in React, Vue, or Next.js when multiple instances of an icon declare identical <code>id="gradient"</code>. Browsers bind to the first matching ID in the DOM. If that element unmounts, all subsequent icons break into blank spaces. Fixed by generating unique IDs with <code>useId()</code>.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">Shadow DOM Scoping</span>
+              <span class="term-tag">Web Components</span>
+            </div>
+            <p class="term-desc">Paint servers defined inside a Web Component's Shadow DOM cannot be referenced by outer host elements unless placed inside light DOM <code>&lt;svg&gt;</code> or pierced via CSS variables.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">CSS color-mix() in Stops</span>
+              <span class="term-tag">Dynamic Theming</span>
+            </div>
+            <p class="term-desc">Using modern CSS <code>color-mix()</code> inside <code>stop-color</code> attributes to dynamically derive gradient intermediate steps from text tokens or dark mode variables.</p>
+          </div>
+
+          <div class="term-card">
+            <div class="term-header">
+              <span class="term-title">GPU Raster Tile Caching</span>
+              <span class="term-tag">Hardware Acceleration</span>
+            </div>
+            <p class="term-desc">The browser graphics subsystem rasterizes repeating <code>&lt;pattern&gt;</code> tiles into GPU texture memory once, allowing massive repeating vector backgrounds to scroll at 60 FPS.</p>
+          </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section id="coordinate-comparison">
+          <h2>
+            <span>Technical Evaluation: objectBoundingBox vs userSpaceOnUse</span>
+            <span class="cat-badge">Deep Dive</span>
+          </h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Architectural Dimension</th>
+                  <th>objectBoundingBox (Default)</th>
+                  <th>userSpaceOnUse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Coordinate Span</strong></td>
+                  <td>Normalized <code>0.0</code> to <code>1.0</code> (0% to 100%)</td>
+                  <td>Absolute SVG viewBox units (pixels/points)</td>
+                </tr>
+                <tr>
+                  <td><strong>Aspect Ratio Distortion</strong></td>
+                  <td>Yes &mdash; non-square elements stretch circles into ellipses</td>
+                  <td>None &mdash; preserves circular radii and strict geometry</td>
+                </tr>
+                <tr>
+                  <td><strong>Element Resizing Behavior</strong></td>
+                  <td>Gradient automatically scales and stretches with target shape</td>
+                  <td>Paint remains fixed in canvas space; shape acts as a window</td>
+                </tr>
+                <tr>
+                  <td><strong>Zero-Width/Height Edge Case</strong></td>
+                  <td>Fails (0 divided by 0 collapses paint to black or empty)</td>
+                  <td>Renders safely using parent canvas coordinates</td>
+                </tr>
+                <tr>
+                  <td><strong>Best Fit Use Case</strong></td>
+                  <td>UI buttons, responsive badges, card fills, self-contained icons</td>
+                  <td>Complex technical diagrams, unified multi-shape charts, tiling</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <h3>What is the key difference between objectBoundingBox and userSpaceOnUse?</h3>
+            <p>objectBoundingBox (default) evaluates coordinates as normalized fractions (0 to 1) relative to the target element's bounding box, automatically scaling with the element. userSpaceOnUse calculates coordinates using the absolute SVG canvas coordinate system, preventing aspect-ratio distortion on non-square shapes.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Why do SVG gradients cause visual bugs or blank fills in Single-Page Apps?</h3>
+            <p>SVG gradients are referenced via ID selectors like fill='url(#grad1)'. When multiple components across routes or lists render identical IDs in the DOM, the browser resolves only the first instance encountered. If that first instance is unmounted or in an off-screen SVG, all other icons referencing that ID collapse into blank transparent fills.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How does spreadMethod govern gradient overflow?</h3>
+            <p>spreadMethod determines how colors behave outside the gradient's x1/y1 and x2/y2 vector span. 'pad' (default) clamps to the first and last stop colors; 'reflect' mirrors the color stops alternately; 'repeat' loops the gradient sequence continuously from 0% to 100%.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What is the difference between color-interpolation='sRGB' and 'linearRGB'?</h3>
+            <p>linearRGB executes color stop interpolation in a physically linear color space where intermediate hues blend naturally without dirty gray or muddy bands. sRGB applies a non-linear gamma curve that can cause dark halos between complementary or high-saturation colors.</p>
+          </div>
+        </section>
+
+        <div class="cta-banner">
+          <h3>Explore 134,701 Clean Vector Icons</h3>
+          <p>Find, customize, and export icons across 28 curated open-source libraries. Zero paywalls, zero attribution requirements.</p>
+          <a href="/#/" class="header-cta" style="font-size: 15px; padding: 12px 28px;">Search All 134K+ Icons on IconStash &rarr;</a>
+        </div>
+      </article>
+
+      <aside class="article-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-title">Glossary Categories</div>
+          <nav class="toc-nav" aria-label="Table of Contents">
+            <ol>
+              <li><a href="#cat-core-servers">1. Core Paint Servers</a></li>
+              <li><a href="#cat-geometry">2. Geometry &amp; Endpoints</a></li>
+              <li><a href="#cat-coordinates">3. Coordinate Systems</a></li>
+              <li><a href="#cat-stops">4. Stops &amp; Color Science</a></li>
+              <li><a href="#cat-transforms">5. Transformations</a></li>
+              <li><a href="#cat-traps">6. Application Rules &amp; Traps</a></li>
+              <li><a href="#coordinate-comparison">7. Coordinate Comparison</a></li>
+              <li><a href="#faq-section">8. Frequently Asked Questions</a></li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="cta-sidebar-box">
+          <h4>Search 134,701 Icons</h4>
+          <p>Instant search across Lucide, Tabler, Phosphor, Heroicons &amp; 24 more open-source sets.</p>
+          <a href="/#/" class="cta-sidebar-btn">Launch IconStash &rarr;</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 <a href="/">IconStash</a>. Open-source icon search engine unifying 28 icon sets &amp; 134,701 vector icons.</p>
+    <p style="margin-top: 8px;">
+      <a href="/about/">About</a> &bull;
+      <a href="/contact/">Contact</a> &bull;
+      <a href="/privacy/">Privacy Policy</a> &bull;
+      <a href="/terms/">Terms of Service</a> &bull;
+      <a href="/articles/">Articles</a> &bull;
+      <a href="/stats/">Stats</a>
+    </p>
+  </footer>
+
+  <script>
+    // Theme toggle logic
+    const toggleBtn = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    toggleBtn.addEventListener('click', () => {
+      const nextTheme = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('theme', nextTheme);
+    });
+
+    // Real-time glossary search/filter logic
+    const filterInput = document.getElementById('termFilter');
+    const termCards = document.querySelectorAll('.term-card');
+    const noResults = document.getElementById('noResults');
+    const noResultsQuery = document.getElementById('noResultsQuery');
+    const resetFilterBtn = document.getElementById('resetFilterBtn');
+
+    function filterTerms(query) {
+      const q = query.trim().toLowerCase();
+      let visibleCount = 0;
+
+      termCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0 && q) {
+        noResults.style.display = 'block';
+        noResultsQuery.textContent = query;
+      } else {
+        noResults.style.display = 'none';
+      }
+    }
+
+    filterInput.addEventListener('input', (e) => filterTerms(e.target.value));
+    resetFilterBtn.addEventListener('click', () => {
+      filterInput.value = '';
+      filterTerms('');
+      filterInput.focus();
+    });
+  </script>
+</body>
+</html>

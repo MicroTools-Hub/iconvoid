@@ -14,29 +14,32 @@ function assert(condition, message) {
   }
 }
 
-console.log('=== VERIFYING 2 NEW ARTICLES, 1 GLOSSARY & SITE INTEGRATION ===\n');
+console.log('=== VERIFYING NEW ARTICLES & GLOSSARY (SEPTEMBER 7, 2026) ===\n');
 
 const items = [
   {
     type: 'article',
-    slug: 'how-to-use-svg-icons-in-react-native-and-expo',
-    path: 'articles/how-to-use-svg-icons-in-react-native-and-expo/index.html',
-    canonical: 'https://iconstash.io/articles/how-to-use-svg-icons-in-react-native-and-expo/',
-    schemaType: 'TechArticle'
+    slug: 'how-to-use-svg-icons-in-css-mask-image-guide',
+    path: 'articles/how-to-use-svg-icons-in-css-mask-image-guide/index.html',
+    canonical: 'https://iconstash.io/articles/how-to-use-svg-icons-in-css-mask-image-guide/',
+    schemaType: 'TechArticle',
+    image: 'svg-icons-css-mask-image-guide.jpg'
   },
   {
     type: 'article',
-    slug: 'how-to-build-custom-icon-library-npm-package-guide',
-    path: 'articles/how-to-build-custom-icon-library-npm-package-guide/index.html',
-    canonical: 'https://iconstash.io/articles/how-to-build-custom-icon-library-npm-package-guide/',
-    schemaType: 'TechArticle'
+    slug: 'how-to-use-svg-icons-in-angular-guide',
+    path: 'articles/how-to-use-svg-icons-in-angular-guide/index.html',
+    canonical: 'https://iconstash.io/articles/how-to-use-svg-icons-in-angular-guide/',
+    schemaType: 'TechArticle',
+    image: 'angular-19-svg-icons-guide.jpg'
   },
   {
     type: 'glossary',
-    slug: 'svg-filters-and-filter-primitives-glossary',
-    path: 'Glossary/svg-filters-and-filter-primitives-glossary/index.html',
-    canonical: 'https://iconstash.io/Glossary/svg-filters-and-filter-primitives-glossary/',
-    schemaType: 'DefinedTermSet'
+    slug: 'svg-gradients-patterns-paint-servers-glossary',
+    path: 'Glossary/svg-gradients-patterns-paint-servers-glossary/index.html',
+    canonical: 'https://iconstash.io/Glossary/svg-gradients-patterns-paint-servers-glossary/',
+    schemaType: 'DefinedTermSet',
+    image: 'svg-gradients-patterns-paint-servers-glossary.jpg'
   }
 ];
 
@@ -61,11 +64,15 @@ for (const item of items) {
   // 4. Visible author byline
   assert(content.includes('By <a href="/about/" rel="author">Jouni Flemming</a>'), `Visible author byline is present linking to /about/`);
 
-  // 5. Open Graph & Twitter image
-  assert(content.includes('property="og:image" content="https://iconstash.io/og-default.png"'), `OG image is og-default.png`);
-  assert(content.includes('name="twitter:image" content="https://iconstash.io/og-default.png"'), `Twitter image is og-default.png`);
+  // 5. Open Graph, Twitter & In-Content Image
+  const expectedImgUrl = `https://iconstash.io/assets/articles/${item.image}`;
+  const assetPath = path.join('assets/articles', item.image);
+  assert(fs.existsSync(assetPath), `Image file exists on disk: ${assetPath}`);
+  assert(content.includes(`property="og:image" content="${expectedImgUrl}"`), `OG image is ${item.image}`);
+  assert(content.includes(`name="twitter:image" content="${expectedImgUrl}"`), `Twitter image is ${item.image}`);
   assert(content.includes('property="og:image:width" content="1200"'), `OG width is 1200`);
-  assert(content.includes('property="og:image:height" content="630"'), `OG height is 630`);
+  assert(content.includes('property="og:image:height" content="675"'), `OG height is 675`);
+  assert(content.includes(`<img src="/assets/articles/${item.image}"`), `Content includes hero figure referencing ${item.image}`);
 
   // 6. Forbidden words
   for (const f of forbidden) {
@@ -97,6 +104,7 @@ for (const item of items) {
         assert(mainSchema.author && mainSchema.author.name === 'Jouni Flemming', `Schema author is Jouni Flemming`);
         assert(mainSchema.author && mainSchema.author.url === 'https://iconstash.io/about/', `Schema author URL is https://iconstash.io/about/`);
         assert(!JSON.stringify(mainSchema.author).includes('github.com'), `Schema author does not contain github.com`);
+        assert(mainSchema.image === expectedImgUrl, `Schema image matches ${expectedImgUrl}`);
         assert(mainSchema.publisher && mainSchema.publisher.name === 'IconStash', `Schema publisher is IconStash`);
         assert(mainSchema.publisher && mainSchema.publisher.parentOrganization && mainSchema.publisher.parentOrganization.name === 'Great Software Company', `Schema parentOrganization is Great Software Company`);
         assert(mainSchema.publisher.parentOrganization.url === 'https://greatsoftwarecompany.com', `Schema parentOrganization URL is https://greatsoftwarecompany.com`);
@@ -167,7 +175,7 @@ for (const item of items) {
   }
 }
 
-assert(/<loc>https:\/\/iconstash\.io\/articles-sitemap\.xml<\/loc><lastmod>2026-09-0[67]<\/lastmod>/.test(sitemapXml), 'sitemap.xml has updated lastmod for articles-sitemap.xml');
+assert(sitemapXml.includes('<loc>https://iconstash.io/articles-sitemap.xml</loc><lastmod>2026-09-07</lastmod>'), 'sitemap.xml has updated lastmod 2026-09-07 for articles-sitemap.xml');
 
 console.log(`\n========================================`);
 console.log(`RESULTS: ${passed} PASSED, ${failed} FAILED`);
