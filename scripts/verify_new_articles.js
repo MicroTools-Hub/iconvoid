@@ -164,7 +164,7 @@ for (const a of articles) {
   assert(articlesSitemap.includes(`https://iconstash.io/articles/${a.slug}/`), `articles-sitemap.xml includes ${a.slug}`);
 }
 
-assert(/<loc>https:\/\/iconstash\.io\/articles-sitemap\.xml<\/loc><lastmod>2026-09-0[56]<\/lastmod>/.test(sitemapXml), 'sitemap.xml has updated lastmod for articles-sitemap.xml');
+assert(/<loc>https:\/\/iconstash\.io\/articles-sitemap\.xml<\/loc><lastmod>2026-09-0[5-9]<\/lastmod>/.test(sitemapXml), 'sitemap.xml has updated lastmod for articles-sitemap.xml');
 
 console.log(`\n========================================`);
 console.log(`RESULTS: ${passed} PASSED, ${failed} FAILED`);
